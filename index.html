@@ -6,109 +6,296 @@
   <title>LeadPredictor</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <main class="app">
-    <aside class="sidebar">
-    <div class="brand">
-    <div class="brand-icon"></div>
 
-    <div class="brand-text">
-        <span class="lead">Lead</span>
-        <span class="predictor">Predictor</span>
-    </div>
-    </div>
+    <aside class="sidebar">
+
+      <div class="brand">
+        <div class="brand-icon"></div>
+
+        <div class="brand-text">
+          <span class="lead">Lead</span>
+          <span class="predictor">Predictor</span>
+        </div>
+      </div>
 
       <section class="panel controls-panel">
-<label>
-  <span class="language-label">Language</span>
-
-  <div class="language-select">
-    <span class="flag-icon us" id="languageFlag"></span>
-
-    <select id="language">
-      <option value="us">English</option>
-      <option value="bg">Bulgarian</option>
-    </select>
-  </div>
-</label>
 
         <label>
-        <span>Currency</span>
-        <select id="currency">
-            <option value="$">$ US Dollar</option>
-            <option value="€">€ Euro</option>
-            <option value="лв">лв Bulgarian Lev</option>
-        </select>
+          <span class="language-label">
+            Language
+          </span>
+
+          <div class="language-select">
+            <span
+              class="flag-icon us"
+              id="languageFlag"
+            ></span>
+
+            <select id="language">
+              <option value="us">
+                English
+              </option>
+
+              <option value="bg">
+                Bulgarian
+              </option>
+            </select>
+          </div>
         </label>
 
         <label>
-          <span>Campaign Start</span>
-          <input id="startDate" type="date" value="2026-05-08" />
+          <span>
+            Currency
+          </span>
+
+          <select id="currency">
+            <option value="$">
+              $ US Dollar
+            </option>
+
+            <option value="€">
+              € Euro
+            </option>
+
+            <option value="лв">
+              лв Bulgarian Lev
+            </option>
+          </select>
         </label>
 
         <label>
-          <span>Campaign End</span>
-          <input id="endDate" type="date" value="2026-11-04" />
+          <span>
+            Campaign Start
+          </span>
+
+          <input
+            id="startDate"
+            type="date"
+            value="2026-05-08"
+          />
         </label>
 
         <label>
-          <span>Total Revenue</span>
-          <div class="money-field"><b id="revenueCurrency">$</b><input id="revenue" type="number" value="10000" /></div>
+          <span>
+            Campaign End
+          </span>
+
+          <input
+            id="endDate"
+            type="date"
+            value="2026-11-04"
+          />
         </label>
 
         <label>
-          <span>Avg. Order Value</span>
-          <div class="money-field"><b id="aovCurrency">$</b><input id="aov" type="number" value="1000" /></div>
+          <span>
+            Total Revenue
+          </span>
+
+          <div class="money-field">
+            <b id="revenueCurrency">
+              $
+            </b>
+
+            <input
+              id="revenue"
+              type="number"
+              value="10000"
+            />
+          </div>
         </label>
+
+        <label>
+          <span>
+            Avg. Order Value
+          </span>
+
+          <div class="money-field">
+            <b id="aovCurrency">
+              $
+            </b>
+
+            <input
+              id="aov"
+              type="number"
+              value="1000"
+            />
+          </div>
+        </label>
+
       </section>
+
     </aside>
 
     <section class="dashboard">
+
       <section class="top-grid">
+
         <div class="panel chart-card">
+
           <div class="chart-wrap">
-            <div class="y-title">Months</div>
-            <div class="y-labels"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div>
-            <div class="chart" id="chart"></div>
-            <div class="x-labels"><span>0 people</span><span>20 people</span><span>40 people</span><span>60 people</span><span>80 people</span><span>100 people</span><span>120 people</span></div>
+
+            <div class="y-title">
+              Months
+            </div>
+
+            <div class="y-labels"></div>
+
+            <div
+              class="chart"
+              id="chart"
+            ></div>
+
+            <div class="x-labels">
+              <span>0 people</span>
+              <span>20 people</span>
+              <span>40 people</span>
+              <span>60 people</span>
+              <span>80 people</span>
+              <span>100 people</span>
+              <span>120 people</span>
+            </div>
+
           </div>
+
+          <div class="stats">
+
+            <article class="stat-card">
+
+              <div class="stat-head">
+                <span class="mini-icon folder"></span>
+
+                <b>
+                  Prospects
+                </b>
+
+                <strong id="prospectPercent">
+                  100%
+                </strong>
+              </div>
+
+              <div
+                class="stat-value"
+                id="prospectsValue"
+              >
+                125
+              </div>
+
+              <div class="stat-bar">
+                <i style="width:100%"></i>
+              </div>
+
+            </article>
+
+            <article class="stat-card">
+
+              <div class="stat-head">
+                <span class="mini-icon user"></span>
+
+                <b>
+                  Leads
+                </b>
+
+                <strong id="leadPercent">
+                  20%
+                </strong>
+              </div>
+
+              <div
+                class="stat-value"
+                id="leadsValue"
+              >
+                25
+              </div>
+
+              <div class="stat-bar">
+                <i id="leadBar"></i>
+              </div>
+
+            </article>
+
+            <article class="stat-card">
+
+              <div class="stat-head">
+                <span class="mini-icon trophy"></span>
+
+                <b>
+                  Customers
+                </b>
+
+                <strong id="customerPercent">
+                  8%
+                </strong>
+              </div>
+
+              <div
+                class="stat-value"
+                id="customersValue"
+              >
+                10
+              </div>
+
+              <div class="stat-bar">
+                <i id="customerBar"></i>
+              </div>
+
+            </article>
+
+          </div>
+
         </div>
 
-        <div class="stats">
-          <article class="stat-card">
-            <div class="stat-head"><span class="mini-icon folder"></span><b>Prospects</b><strong id="prospectPercent">100%</strong></div>
-            <div class="stat-value" id="prospectsValue">125</div>
-            <div class="stat-bar"><i style="width:100%"></i></div>
-          </article>
-
-          <article class="stat-card">
-            <div class="stat-head"><span class="mini-icon user"></span><b>Leads</b><strong id="leadPercent">20%</strong></div>
-            <div class="stat-value" id="leadsValue">25</div>
-            <div class="stat-bar"><i id="leadBar"></i></div>
-          </article>
-
-          <article class="stat-card">
-            <div class="stat-head"><span class="mini-icon trophy"></span><b>Customers</b><strong id="customerPercent">8%</strong></div>
-            <div class="stat-value" id="customersValue">10</div>
-            <div class="stat-bar"><i id="customerBar"></i></div>
-          </article>
-        </div>
       </section>
 
       <section class="panel sliders-panel">
+
         <label class="slider-row">
-          <span>Lead Response Rate</span>
-          <input id="leadRate" type="range" min="1" max="100" value="40" />
-          <em id="leadRateLabel">40.00%</em>
+
+          <span>
+            Lead Response Rate
+          </span>
+
+          <input
+            id="leadRate"
+            type="range"
+            min="1"
+            max="100"
+            value="40"
+          />
+
+          <em id="leadRateLabel">
+            40.00%
+          </em>
+
         </label>
 
         <label class="slider-row">
-          <span>Prospect Response Rate</span>
-          <input id="prospectRate" type="range" min="1" max="100" value="20" />
-          <em id="prospectRateLabel">20.00%</em>
+
+          <span>
+            Prospect Response Rate
+          </span>
+
+          <input
+            id="prospectRate"
+            type="range"
+            min="1"
+            max="100"
+            value="20"
+          />
+
+          <em id="prospectRateLabel">
+            20.00%
+          </em>
+
         </label>
+
       </section>
+
     </section>
+
   </main>
 
   <script src="script.js"></script>
