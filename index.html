@@ -9,27 +9,36 @@
 <body>
   <main class="app">
     <aside class="sidebar">
-      <div class="brand">
-        <span class="brand-mark"></span>
-        <span>LeadPredictor</span>
-      </div>
+    <div class="brand">
+    <div class="brand-icon"></div>
+
+    <div class="brand-text">
+        <span class="lead">Lead</span>
+        <span class="predictor">Predictor</span>
+    </div>
+    </div>
 
       <section class="panel controls-panel">
-        <label>
-          <span>Language</span>
-          <select id="language">
-            <option>🇺🇸 English</option>
-            <option>🇧🇬 Bulgarian</option>
-          </select>
-        </label>
+<label>
+  <span class="language-label">Language</span>
+
+  <div class="language-select">
+    <span class="flag-icon us" id="languageFlag"></span>
+
+    <select id="language">
+      <option value="us">English</option>
+      <option value="bg">Bulgarian</option>
+    </select>
+  </div>
+</label>
 
         <label>
-          <span>Currency</span>
-          <select id="currency">
+        <span>Currency</span>
+        <select id="currency">
             <option value="$">$ US Dollar</option>
             <option value="€">€ Euro</option>
             <option value="лв">лв Bulgarian Lev</option>
-          </select>
+        </select>
         </label>
 
         <label>
