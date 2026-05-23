@@ -337,7 +337,7 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 .y-title{
   position:absolute;
 
-  left:1px;
+  left:-10px;
   top:166px;
 
   color:white;
@@ -450,28 +450,17 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 
 .tooltip{
   position:absolute;
-
-  z-index:5;
-
-  left:130px;
-  top:119px;
-
+  z-index:50;
   width:105px;
-
   padding:9px 10px;
-
   border-radius:4px;
-
   background:rgba(130,141,155,.88);
-
   color:white;
-
   font-size:10px;
   font-weight:800;
-
   line-height:1.18;
-
   box-shadow:0 6px 12px rgba(0,0,0,.24);
+  pointer-events:none;
 }
 
 /* STATS */

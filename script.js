@@ -325,18 +325,22 @@ function drawChart(prospects, leads, customers) {
     `;
     tooltip.style.display = 'none';
 
-    row.addEventListener('mouseenter', () => {
-      tooltip.style.display = 'block';
+    row.addEventListener('mousemove', (event) => {
+    const chartRect = chart.getBoundingClientRect();
+
+    tooltip.style.display = 'block';
+    tooltip.style.left = event.clientX - chartRect.left + 12 + 'px';
+    tooltip.style.top = event.clientY - chartRect.top + 12 + 'px';
     });
 
     row.addEventListener('mouseleave', () => {
-      tooltip.style.display = 'none';
+    tooltip.style.display = 'none';
     });
 
     row.appendChild(prospectsBar);
     row.appendChild(leadsBar);
     row.appendChild(customersBar);
-    row.appendChild(tooltip);
+    chart.appendChild(tooltip);
 
     chart.appendChild(row);
   }
