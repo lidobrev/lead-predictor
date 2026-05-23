@@ -99,12 +99,42 @@ input[type="date"],
 .money-field{
   width:100%;
   height:43px;
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:7px;
-  background:linear-gradient(180deg,#2a374a,#253143);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:8px;
+  background:linear-gradient(180deg,#2b3749 0%, #243042 100%);
   color:white;
   outline:none;
-  box-shadow:inset 0 1px 2px rgba(255,255,255,.04),0 1px 0 rgba(0,0,0,.2);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.03),
+    0 1px 0 rgba(0,0,0,.2);
+}
+
+select{
+  appearance:none;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+
+  padding:0 42px 0 15px;
+
+  font-size:13px;
+  font-weight:700;
+  color:#f3f6fb;
+
+  background:
+    linear-gradient(45deg,transparent 50%,#7f8ba0 50%) right 16px top 17px/5px 5px no-repeat,
+    linear-gradient(135deg,#7f8ba0 50%,transparent 50%) right 12px top 17px/5px 5px no-repeat,
+    linear-gradient(180deg,#2b3749 0%, #243042 100%);
+}
+
+select option{
+  background:#243042;
+  color:white;
+}
+
+input[type="date"]{
+  padding:0 15px;
+  font-size:13px;
+  font-weight:700;
 }
 
 select,
