@@ -38,6 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const endDateDisplay =
     document.getElementById('endDateDisplay');
 
+  const yLabels = document.querySelector('.y-labels');
+
   const labels = {
     us: {
       language: 'Language',
@@ -287,9 +289,24 @@ function drawChart(prospects, leads, customers) {
   chart.innerHTML = '';
 
   const months = getMonthsCount();
+yLabels.innerHTML = '';
+
+for (let i = 1; i <= months; i++) {
+const label = document.createElement('span');
+
+label.textContent = i;
+
+yLabels.appendChild(label);
+}
   const max = Math.max(prospects, 125);
   const rowHeight = 57;
   const barHeight = 51;
+
+  const chartHeight = months * rowHeight;
+
+  chart.style.height = chartHeight + 'px';
+  chart.closest('.chart-wrap').style.minHeight = chartHeight + 39 + 'px';
+  chart.closest('.chart-card').style.minHeight = chartHeight + 76 + 'px'; 
 
   for (let i = 1; i <= months; i++) {
     const row = document.createElement('div');
