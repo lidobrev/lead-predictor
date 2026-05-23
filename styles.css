@@ -614,9 +614,9 @@ input[type="range"]::-moz-range-thumb{
 .slider-row em{
   position:absolute;
   right:0;
-  top:30px;
+  top:48px;
   color:white;
   font-style:normal;
   font-size:12px;
-  font-weight:800;
+  font-weight:600;
 }
