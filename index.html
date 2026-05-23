@@ -1,138 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LeadPredictor</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LeadPredictor</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="container">
-        <!-- Left Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-content">
-                <!-- Language Section -->
-                <div class="form-group">
-                    <label for="language">Language</label>
-                    <select id="language" class="select-input">
-                        <option value="en">🇬🇧 English</option>
-                        <option value="bg">🇧🇬 Български</option>
-                    </select>
-                </div>
+  <main class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <span>LeadPredictor</span>
+      </div>
 
-                <!-- Currency Section -->
-                <div class="form-group">
-                    <label for="currency">Currency</label>
-                    <select id="currency" class="select-input">
-                        <option value="usd">$ US Dollar</option>
-                        <option value="eur">€ Euro</option>
-                        <option value="gbp">£ British Pound</option>
-                    </select>
-                </div>
+      <section class="panel controls-panel">
+        <label>
+          <span>Language</span>
+          <select id="language">
+            <option>🇺🇸 English</option>
+            <option>🇧🇬 Bulgarian</option>
+          </select>
+        </label>
 
-                <!-- Campaign Start Date -->
-                <div class="form-group">
-                    <label for="campaign-start">Campaign Start</label>
-                    <input type="date" id="campaign-start" class="date-input" value="2026-05-08">
-                </div>
+        <label>
+          <span>Currency</span>
+          <select id="currency">
+            <option value="$">$ US Dollar</option>
+            <option value="€">€ Euro</option>
+            <option value="лв">лв Bulgarian Lev</option>
+          </select>
+        </label>
 
-                <!-- Campaign End Date -->
-                <div class="form-group">
-                    <label for="campaign-end">Campaign End</label>
-                    <input type="date" id="campaign-end" class="date-input" value="2026-11-04">
-                </div>
+        <label>
+          <span>Campaign Start</span>
+          <input id="startDate" type="date" value="2026-05-08" />
+        </label>
 
-                <!-- Total Revenue -->
-                <div class="form-group">
-                    <label for="total-revenue">Total Revenue</label>
-                    <input type="number" id="total-revenue" class="number-input" value="10000" min="0">
-                </div>
+        <label>
+          <span>Campaign End</span>
+          <input id="endDate" type="date" value="2026-11-04" />
+        </label>
 
-                <!-- Avg Order Value -->
-                <div class="form-group">
-                    <label for="avg-order-value">Avg Order Value</label>
-                    <input type="number" id="avg-order-value" class="number-input" value="1000" min="0">
-                </div>
-            </div>
-        </aside>
+        <label>
+          <span>Total Revenue</span>
+          <div class="money-field"><b id="revenueCurrency">$</b><input id="revenue" type="number" value="10000" /></div>
+        </label>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Top Section with Chart and Stats -->
-            <div class="top-section">
-                <!-- Chart Area -->
-                <div class="chart-container">
-                    <div class="chart-wrapper">
-                        <canvas id="revenueChart" width="600" height="320"></canvas>
-                    </div>
-                </div>
+        <label>
+          <span>Avg. Order Value</span>
+          <div class="money-field"><b id="aovCurrency">$</b><input id="aov" type="number" value="1000" /></div>
+        </label>
+      </section>
+    </aside>
 
-                <!-- Stats Cards -->
-                <div class="stats-column">
-                    <!-- Projects Card -->
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon projects-icon">📊</div>
-                            <span class="stat-title">Projects</span>
-                            <span class="stat-percentage">100%</span>
-                        </div>
-                        <div class="stat-value">125</div>
-                        <div class="stat-progress-bar">
-                            <div class="stat-progress" style="width: 100%"></div>
-                        </div>
-                    </div>
+    <section class="dashboard">
+      <section class="top-grid">
+        <div class="panel chart-card">
+          <div class="chart-wrap">
+            <div class="y-title">Months</div>
+            <div class="y-labels"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span></div>
+            <div class="chart" id="chart"></div>
+            <div class="x-labels"><span>0 people</span><span>20 people</span><span>40 people</span><span>60 people</span><span>80 people</span><span>100 people</span><span>120 people</span></div>
+          </div>
+        </div>
 
-                    <!-- Leads Card -->
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon leads-icon">👥</div>
-                            <span class="stat-title">Leads</span>
-                            <span class="stat-percentage" id="leads-percentage">20%</span>
-                        </div>
-                        <div class="stat-value" id="leads-value">25</div>
-                        <div class="stat-progress-bar">
-                            <div class="stat-progress" id="leads-progress" style="width: 20%"></div>
-                        </div>
-                    </div>
+        <div class="stats">
+          <article class="stat-card">
+            <div class="stat-head"><span class="mini-icon folder"></span><b>Prospects</b><strong id="prospectPercent">100%</strong></div>
+            <div class="stat-value" id="prospectsValue">125</div>
+            <div class="stat-bar"><i style="width:100%"></i></div>
+          </article>
 
-                    <!-- Customers Card -->
-                    <div class="stat-card">
-                        <div class="stat-header">
-                            <div class="stat-icon customers-icon">🎯</div>
-                            <span class="stat-title">Customers</span>
-                            <span class="stat-percentage" id="customers-percentage">8%</span>
-                        </div>
-                        <div class="stat-value" id="customers-value">10</div>
-                        <div class="stat-progress-bar">
-                            <div class="stat-progress" id="customers-progress" style="width: 8%"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <article class="stat-card">
+            <div class="stat-head"><span class="mini-icon user"></span><b>Leads</b><strong id="leadPercent">20%</strong></div>
+            <div class="stat-value" id="leadsValue">25</div>
+            <div class="stat-bar"><i id="leadBar"></i></div>
+          </article>
 
-            <!-- Bottom Section with Sliders -->
-            <div class="bottom-section">
-                <!-- Lead Response Rate -->
-                <div class="slider-section">
-                    <div class="slider-label">Lead Response Rate</div>
-                    <div class="slider-wrapper">
-                        <input type="range" id="lead-response-slider" class="slider" min="0" max="100" value="40" step="0.1">
-                        <span class="slider-value" id="lead-response-value">40.00%</span>
-                    </div>
-                </div>
+          <article class="stat-card">
+            <div class="stat-head"><span class="mini-icon trophy"></span><b>Customers</b><strong id="customerPercent">8%</strong></div>
+            <div class="stat-value" id="customersValue">10</div>
+            <div class="stat-bar"><i id="customerBar"></i></div>
+          </article>
+        </div>
+      </section>
 
-                <!-- Prospect Response Rate -->
-                <div class="slider-section">
-                    <div class="slider-label">Prospect Response Rate</div>
-                    <div class="slider-wrapper">
-                        <input type="range" id="prospect-response-slider" class="slider" min="0" max="100" value="20" step="0.1">
-                        <span class="slider-value" id="prospect-response-value">20.00%</span>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
+      <section class="panel sliders-panel">
+        <label class="slider-row">
+          <span>Lead Response Rate</span>
+          <input id="leadRate" type="range" min="1" max="100" value="40" />
+          <em id="leadRateLabel">40.00%</em>
+        </label>
 
-    <script src="script.js"></script>
+        <label class="slider-row">
+          <span>Prospect Response Rate</span>
+          <input id="prospectRate" type="range" min="1" max="100" value="20" />
+          <em id="prospectRateLabel">20.00%</em>
+        </label>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
