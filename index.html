@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadPredictor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <!-- Language Section -->
+                <div class="form-group">
+                    <label for="language">Language</label>
+                    <select id="language" class="select-input">
+                        <option value="en">🇬🇧 English</option>
+                        <option value="bg">🇧🇬 Български</option>
+                    </select>
+                </div>
+
+                <!-- Currency Section -->
+                <div class="form-group">
+                    <label for="currency">Currency</label>
+                    <select id="currency" class="select-input">
+                        <option value="usd">$ US Dollar</option>
+                        <option value="eur">€ Euro</option>
+                        <option value="gbp">£ British Pound</option>
+                    </select>
+                </div>
+
+                <!-- Campaign Start Date -->
+                <div class="form-group">
+                    <label for="campaign-start">Campaign Start</label>
+                    <input type="date" id="campaign-start" class="date-input" value="2026-05-08">
+                </div>
+
+                <!-- Campaign End Date -->
+                <div class="form-group">
+                    <label for="campaign-end">Campaign End</label>
+                    <input type="date" id="campaign-end" class="date-input" value="2026-11-04">
+                </div>
+
+                <!-- Total Revenue -->
+                <div class="form-group">
+                    <label for="total-revenue">Total Revenue</label>
+                    <input type="number" id="total-revenue" class="number-input" value="10000" min="0">
+                </div>
+
+                <!-- Avg Order Value -->
+                <div class="form-group">
+                    <label for="avg-order-value">Avg Order Value</label>
+                    <input type="number" id="avg-order-value" class="number-input" value="1000" min="0">
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Section with Chart and Stats -->
+            <div class="top-section">
+                <!-- Chart Area -->
+                <div class="chart-container">
+                    <div class="chart-wrapper">
+                        <canvas id="revenueChart" width="600" height="320"></canvas>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-column">
+                    <!-- Projects Card -->
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon projects-icon">📊</div>
+                            <span class="stat-title">Projects</span>
+                            <span class="stat-percentage">100%</span>
+                        </div>
+                        <div class="stat-value">125</div>
+                        <div class="stat-progress-bar">
+                            <div class="stat-progress" style="width: 100%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Leads Card -->
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon leads-icon">👥</div>
+                            <span class="stat-title">Leads</span>
+                            <span class="stat-percentage" id="leads-percentage">20%</span>
+                        </div>
+                        <div class="stat-value" id="leads-value">25</div>
+                        <div class="stat-progress-bar">
+                            <div class="stat-progress" id="leads-progress" style="width: 20%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Customers Card -->
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-icon customers-icon">🎯</div>
+                            <span class="stat-title">Customers</span>
+                            <span class="stat-percentage" id="customers-percentage">8%</span>
+                        </div>
+                        <div class="stat-value" id="customers-value">10</div>
+                        <div class="stat-progress-bar">
+                            <div class="stat-progress" id="customers-progress" style="width: 8%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section with Sliders -->
+            <div class="bottom-section">
+                <!-- Lead Response Rate -->
+                <div class="slider-section">
+                    <div class="slider-label">Lead Response Rate</div>
+                    <div class="slider-wrapper">
+                        <input type="range" id="lead-response-slider" class="slider" min="0" max="100" value="40" step="0.1">
+                        <span class="slider-value" id="lead-response-value">40.00%</span>
+                    </div>
+                </div>
+
+                <!-- Prospect Response Rate -->
+                <div class="slider-section">
+                    <div class="slider-label">Prospect Response Rate</div>
+                    <div class="slider-wrapper">
+                        <input type="range" id="prospect-response-slider" class="slider" min="0" max="100" value="20" step="0.1">
+                        <span class="slider-value" id="prospect-response-value">20.00%</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
