@@ -22,9 +22,19 @@ body{
   color:var(--text);
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+  -webkit-appearance:none;
+  margin:0;
+}
+
+input[type="number"]{
+  -moz-appearance:textfield;
+}
+
 .app{
   width:1188px;
-  height:696px;
+  min-height:696px;
 
   display:grid;
   grid-template-columns:288px 1fr;
@@ -310,6 +320,8 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 }
 
 .chart-card{
+  height:auto;
+  min-height:455px;
   padding:38px 31px 37px 42px;
 }
 
@@ -718,3 +730,4 @@ input[type="range"]::-moz-range-thumb{
   font-size:12px;
   font-weight:800;
 }
+
